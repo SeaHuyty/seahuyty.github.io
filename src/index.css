@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&family=Sora:wght@100..800&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ubuntu Sans Font Configuration */
+.ubuntu-sans {
+  font-family: "Ubuntu Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+/* Kantumruy Pro Font Configuration for Khmer */
+.kantumruy-pro {
+  font-family: "Kantumruy Pro", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+/* Set Ubuntu Sans as default for body */
+@layer base {
+  body {
+    font-family: "Ubuntu Sans", ui-sans-serif, system-ui, sans-serif;
+    font-optical-sizing: auto;
+    font-variation-settings: "wdth" 100;
+    @apply bg-white dark:bg-black text-black dark:text-gray-100 transition-colors duration-200;
+  }
+  
+  /* Apply Kantumruy Pro font when language is Khmer */
+  html.lang-km body {
+    font-family: "Kantumruy Pro", ui-sans-serif, system-ui, sans-serif;
+    font-variation-settings: normal;
+  }
+
+  /* Custom Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgb(243 244 246);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(209 213 219);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(156 163 175);
+  }
+
+  /* Firefox Scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(209 213 219) rgb(243 244 246);
+    user-select: none;
+  }
+}
+
+/* Dark mode scrollbar - outside @layer */
+html.dark ::-webkit-scrollbar-track {
+  background: rgb(17 24 39);
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: rgb(55 65 81);
+  border-radius: 9999px;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgb(75 85 99);
+}
+
+html.dark * {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(55 65 81) rgb(17 24 39);
+}
