@@ -16,7 +16,7 @@ const education: EducationEntry[] = [
     },
     institution: {
       en: "Cambodia Academy of Digital Technology (CADT)",
-      km: "វិទ្យាស្ថានបច្ចេកវិទ្យាឌីជីថលកម្ពុជា (CADT)",
+      km: "បណ្ឌិត្យសភាបច្ចេកវិទ្យាឌីជីថលកម្ពុជា (CADT)",
     },
     institutionLink: "https://cadt.edu.kh/",
   },

@@ -75,7 +75,7 @@ function Home() {
               <div className="mb-4">
                 <ul className="space-y-1 text-black dark:text-white">
                   <li className="text-sm sm:text-[16px]">
-                    Junior Software Developer, <a href="https://www.cambonextgen.com/" className='hover:underline'>CAMBONEXTGEN</a>
+                    Junior Software Developer
                   </li>
                   <li className="text-sm hover:underline"><a href="mailto:seehuyty@gmail.com">seehuyty@gmail.com</a></li>
                 </ul>

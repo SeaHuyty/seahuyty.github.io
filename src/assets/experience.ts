@@ -13,15 +13,15 @@ const experience: ExperienceEntry[] = [
     role: { en: "System Developer", km: "អ្នកអភិវឌ្ឍប្រព័ន្ធ" },
     organization: {
       en: "Photo Phnom Penh Association",
-      km: "Photo Phnom Penh Association",
+      km: "មហោស្រពរូបថតភ្នំពេញ",
     },
-    organizationLink: "https://www.photophnompenh.com/",
+    organizationLink: "https://www.photophnompenh.com",
   },
   {
     id: "2",
-    period: { en: "2026 - Present", km: "2026 - បច្ចុប្បន្ន" },
-    role: { en: "Junior Full-stack Developer, CAMBONEXTGEN", km: "Junior Full-stack Developer, CAMBONEXTGEN" },
-    organizationLink: "https://www.cambonextgen.com/",
+    period: { en: "Apr 2026 - Aug 2026", km: "មេសា 2026 - សីហា 2026" },
+    role: { en: "Junior Full-stack Developer, CAMBONEXTGEN INNOVATIVE TECHNOLOGIES", km: "Junior Full-stack Developer, CAMBONEXTGEN INNOVATIVE TECHNOLOGIES" },
+    organizationLink: "https://www.cambonextgen.com",
   },
 ];
 
