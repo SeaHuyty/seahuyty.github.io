@@ -15,7 +15,7 @@ function TimelineSection({ title, items }: { title: string; items: TimelineItem[
         {items.map((item) => (
           <li
             key={item.id}
-            className={`flex flex-col gap-3 sm:flex-row sm:items-start`}
+            className={`flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-8 lg:gap-12`}
           >
             <span className="block sm:inline-block w-full sm:w-60 text-gray-600 dark:text-gray-400 italic text-sm sm:text-base mb-1 sm:mb-0">
               {item.label}

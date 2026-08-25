@@ -2,6 +2,7 @@ import { Fragment, type ReactNode } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import TimelineSection from '../components/TimelineSection';
+import ProjectsSection from '../components/ProjectsSection';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../locales/translations';
@@ -61,7 +62,7 @@ function Home() {
   return (
     <>
       <Navbar />
-      <div className="container px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto py-4 sm:py-6 lg:py-8 font-normal mt-2 sm:mt-2 md:mt-3">
+      <div className="container px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-4 sm:py-6 lg:py-8 font-normal mt-2 sm:mt-2 md:mt-3">
         <div className="header mb-6 sm:mb-8">
           <img
             src="https://avatars.githubusercontent.com/u/185038956?v=4"
@@ -112,6 +113,7 @@ function Home() {
         <TimelineSection title={t.educationTitle} items={educationItems} />
         <TimelineSection title={t.experienceTitle} items={experienceItems} />
         <TimelineSection title={t.selectedHonors} items={honorItems} />
+        <ProjectsSection />
       </div>
       <Footer />
     </>

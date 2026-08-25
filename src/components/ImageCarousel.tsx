@@ -16,12 +16,12 @@ function ImageCarousel({ images }: ImageCarouselProps) {
   };
 
   return (
-    <div className="relative w-full h-60 sm:h-80 md:h-96 lg:h-[550px]">
+    <div className="relative w-full aspect-video">
       {/* Image */}
       <img
         src={images[current]}
         alt={`slide-${current}`}
-        className="w-full h-60 sm:h-80 md:h-96 lg:h-[550px] object-cover select-none"
+        className="w-full h-full object-cover select-none"
       />
 
       {/* Show navigation only if more than one image */}
