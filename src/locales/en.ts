@@ -11,9 +11,9 @@ export const en = {
     "I'm passionate about building technology that can make a meaningful impact on society. I enjoy exploring different areas of technology, from mobile and web applications to AI, data science, and IoT. I'm currently studying Computer Science while also taking part in a Data Science Bootcamp, expanding my knowledge in data science and artificial intelligence.",
   aboutOutside:
     "Outside of programming, I enjoy traveling and keeping myself fit. I like trying different sports and staying active, a jack of all sports, master of none.",
-  aboutQuestionLead: "I'm also fascinated by a bigger question:",
+  aboutQuestionLead: "I find myself wondering:",
   aboutQuote:
-    "What if machines eventually do all the work, and people are free to simply live, learn, explore, and create?",
+    "What if machines eventually do all the work, and people simply live, learn, explore, and create?",
   educationTitle: "Education",
   experienceTitle: "Experience",
   selectedHonors: "Selected Honors",

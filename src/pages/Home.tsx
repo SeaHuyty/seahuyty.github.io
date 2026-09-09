@@ -1,6 +1,5 @@
-import { useEffect, useRef } from 'react';
 import Navbar from '../components/Navbar';
-// import Footer from '../components/Footer';
+import Footer from '../components/Footer';
 import TimelineSection from '../components/TimelineSection';
 import TeamBadge from '../components/TeamBadge';
 import ProjectsSection from '../components/ProjectsSection';
@@ -12,8 +11,6 @@ import experience from '../assets/experience';
 import honors from '../assets/honors';
 import smeanAiLogo from '../assets/images/smean_ai_logo.jpeg';
 import bongkertSolutionLogo from '../assets/images/bongkert_solution_logo.jpeg';
-
-const LOOP_COPIES = 3;
 
 function HomeContent() {
   const { language } = useLanguage();
@@ -88,8 +85,11 @@ function HomeContent() {
       <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 mb-6 sm:mb-8">
         <div className="introduction lg:w-3/5">
           <TeamBadge label="Team of" href="https://www.smean.ai/" logoSrc={smeanAiLogo} logoAlt="Smean AI" name="SMEAN" />
-          <TeamBadge label="Working at" logoSrc={bongkertSolutionLogo} logoAlt="Bongkert Solution" name="Bongkert Solution" />
-          <TeamBadge label="Building Project for" logoSrc="https://web-storage.interior.gov.kh/media/moi-2024040410013683rDsC2txH1F.png" logoAlt="Ministry of Interior" name="Ministry of Interior" />
+          <div className='flex gap-3'>
+            <TeamBadge label="Working at" logoSrc={bongkertSolutionLogo} logoAlt="Bongkert Solution" name="Bongkert Solution" />
+            <TeamBadge label="Building Project for" logoSrc="https://web-storage.interior.gov.kh/media/moi-2024040410013683rDsC2txH1F.png" logoAlt="Ministry of Interior" name="Ministry of Interior" />
+          </div>
+          <br />
 
           <p className="mb-3 sm:mb-4 text-base sm:text-lg leading-relaxed">
             {t.aboutIntro}
@@ -102,6 +102,8 @@ function HomeContent() {
           <p className="mb-3 sm:mb-4 text-base sm:text-lg leading-relaxed">
             {t.aboutOutside}
           </p>
+
+          <br />
 
           <p className="mb-3 sm:mb-4 text-base sm:text-lg leading-relaxed">
             {t.aboutQuestionLead}
@@ -127,44 +129,12 @@ function HomeContent() {
 }
 
 function Home() {
-  const loopRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = loopRef.current;
-    if (!el) return;
-
-    const segmentHeight = () => el.scrollHeight / LOOP_COPIES;
-
-    // Start the user in the middle copy so there's room to scroll both ways.
-    window.scrollTo(0, window.scrollY + segmentHeight());
-
-    const handleScroll = () => {
-      const height = segmentHeight();
-      if (height === 0) return;
-
-      if (window.scrollY < height * 0.5) {
-        window.scrollTo(0, window.scrollY + height);
-      } else if (window.scrollY > height * (LOOP_COPIES - 1.5)) {
-        window.scrollTo(0, window.scrollY - height);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <>
       <Navbar />
-      <div ref={loopRef}>
-        {Array.from({ length: LOOP_COPIES }).map((_, i) => (
-          <div key={i}>
-            <HomeContent />
-            {/* <div className="mb-16 sm:mb-24">
-              <Footer />
-            </div> */}
-          </div>
-        ))}
+      <HomeContent />
+      <div className="mb-16 sm:mb-24">
+        <Footer />
       </div>
     </>
   )
