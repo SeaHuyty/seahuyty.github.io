@@ -24,7 +24,6 @@ function ImageCarousel({ images }: ImageCarouselProps) {
         className="w-full h-full object-cover select-none"
       />
 
-      {/* Show navigation only if more than one image */}
       {images.length > 1 && (
         <>
           {/* Left zone with custom cursor */}

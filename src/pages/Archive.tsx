@@ -55,9 +55,9 @@ function Archives() {
   const [hoveringIndex, setHoveringIndex] = useState<number | null>(null);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white transition-colors duration-300">
+    <div className="min-h-screen text-black dark:text-white transition-colors duration-300">
       <Navbar />
-      <div className="px-4 sm:px-6 lg:px-10 flex flex-col lg:flex-row gap-6 lg:gap-10 mt-5 sm:mt-9 lg:mt-10">
+      <div className="px-4 sm:px-6 lg:px-10 flex flex-col lg:flex-row gap-6 lg:gap-10 pt-20 sm:pt-24 md:pt-32">
         {/* Left column: Titles - hidden on mobile */}
         <motion.div 
           className="hidden lg:flex flex-col flex-1"

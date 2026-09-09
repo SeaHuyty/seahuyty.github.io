@@ -1,13 +1,22 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Home from './pages/Home';
 import Archive from './pages/Archive';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   const [devToolsOpen, setDevToolsOpen] = useState(false);
 
   useEffect(() => {
-    // Disable right-click
     const handleContextMenu = (e: MouseEvent) => {
       e.preventDefault();
       return false;
@@ -54,6 +63,7 @@ function App() {
           }}
         />
       )}
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/archive" element={<Archive />} />

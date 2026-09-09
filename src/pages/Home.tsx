@@ -1,7 +1,8 @@
-import { Fragment, type ReactNode } from 'react';
+import { useEffect, useRef } from 'react';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+// import Footer from '../components/Footer';
 import TimelineSection from '../components/TimelineSection';
+import TeamBadge from '../components/TeamBadge';
 import ProjectsSection from '../components/ProjectsSection';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { useLanguage } from '../context/LanguageContext';
@@ -9,18 +10,12 @@ import { translations } from '../locales/translations';
 import education from '../assets/education';
 import experience from '../assets/experience';
 import honors from '../assets/honors';
+import smeanAiLogo from '../assets/images/smean_ai_logo.jpeg';
+import bongkertSolutionLogo from '../assets/images/bongkert_solution_logo.jpeg';
 
-function renderTemplate(template: string, tokens: Record<string, ReactNode>) {
-  return template.split(/(\{[^}]+\})/g).map((part, i) => {
-    const match = part.match(/^\{([^}]+)\}$/);
-    if (match && tokens[match[1]] !== undefined) {
-      return <Fragment key={i}>{tokens[match[1]]}</Fragment>;
-    }
-    return part;
-  });
-}
+const LOOP_COPIES = 3;
 
-function Home() {
+function HomeContent() {
   const { language } = useLanguage();
   const t = translations[language];
 
@@ -60,62 +55,117 @@ function Home() {
   }));
 
   return (
-    <>
-      <Navbar />
-      <div className="container px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-4 sm:py-6 lg:py-8 font-normal mt-2 sm:mt-2 md:mt-3">
-        <div className="header mb-6 sm:mb-8">
-          <img
-            src="https://avatars.githubusercontent.com/u/185038956?v=4"
-            className="w-32 h-32 sm:w-40 sm:h-40 lg:w-52 lg:h-52 rounded-full mx-auto mb-4 sm:mb-6 object-cover"
-            alt="Sea Huyty Profile"
-          />
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mt-4 sm:mt-8 space-y-4 sm:space-y-0">
-            <div className="text-center sm:text-left">
-              <h1 className="text-2xl sm:text-3xl mb-2">{t.name}</h1>
+    <div className="container px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-4 sm:py-6 lg:py-8 font-normal pt-20 sm:pt-24 md:pt-32">
+      <div className="header mb-6 sm:mb-8">
+        <img
+          src="https://avatars.githubusercontent.com/u/185038956?v=4"
+          className="w-32 h-32 sm:w-40 sm:h-40 lg:w-52 lg:h-52 rounded-full mx-auto mt-16 sm:mt-24 mb-4 sm:mb-6 object-cover"
+          alt="Sea Huyty Profile"
+        />
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mt-4 sm:mt-8 space-y-4 sm:space-y-0">
+          <div className="text-center sm:text-left">
+            <h1 className="text-2xl sm:text-3xl mb-2">{t.name}</h1>
 
-              <div className="mb-4">
-                <ul className="space-y-1 text-black dark:text-white">
-                  <li className="text-sm sm:text-[16px]">
-                    Junior Software Developer
-                  </li>
-                  <li className="text-sm hover:underline"><a href="mailto:seehuyty@gmail.com">seehuyty@gmail.com</a></li>
-                </ul>
-              </div>
-            </div>
-            <div className="flex justify-center items-center">
-              <DotLottieReact
-                src="https://lottie.host/35e2fe80-26ff-4775-9681-033685fd82c0/BDMCCx6qK5.lottie"
-                loop
-                autoplay
-              />
+            <div className="mb-4">
+              <ul className="space-y-1 text-black dark:text-white">
+                <li className="text-sm sm:text-[16px]">
+                  Junior Software Developer
+                </li>
+                <li className="text-sm hover:underline"><a href="mailto:seehuyty@gmail.com">seehuyty@gmail.com</a></li>
+              </ul>
             </div>
           </div>
+          <div className="flex justify-center items-center">
+            <DotLottieReact
+              src="https://lottie.host/35e2fe80-26ff-4775-9681-033685fd82c0/BDMCCx6qK5.lottie"
+              loop
+              autoplay
+            />
+          </div>
         </div>
+      </div>
 
-        <div id="about" className="introduction mb-6 sm:mb-8">
-          <p className="mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 mb-6 sm:mb-8">
+        <div className="introduction lg:w-3/5">
+          <TeamBadge label="Team of" href="https://www.smean.ai/" logoSrc={smeanAiLogo} logoAlt="Smean AI" name="SMEAN" />
+          <TeamBadge label="Working at" logoSrc={bongkertSolutionLogo} logoAlt="Bongkert Solution" name="Bongkert Solution" />
+          <TeamBadge label="Building Project for" logoSrc="https://web-storage.interior.gov.kh/media/moi-2024040410013683rDsC2txH1F.png" logoAlt="Ministry of Interior" name="Ministry of Interior" />
+
+          <p className="mb-3 sm:mb-4 text-base sm:text-lg leading-relaxed">
             {t.aboutIntro}
           </p>
 
-          <p className="mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
-            {t.aboutProjects}
+          <p className="mb-3 sm:mb-4 text-base sm:text-lg leading-relaxed">
+            {t.aboutPassion}
           </p>
 
-          <p className="text-sm sm:text-base leading-relaxed">
-            {renderTemplate(t.aboutContact, {
-              collaboration: <strong>{t.collaboration}</strong>,
-              opportunity: <strong>{t.opportunity}</strong>,
-              email: <a href="mailto:seehuyty@gmail.com" className="hover:underline">{t.emailLabel}</a>,
-            })}
+          <p className="mb-3 sm:mb-4 text-base sm:text-lg leading-relaxed">
+            {t.aboutOutside}
           </p>
+
+          <p className="mb-3 sm:mb-4 text-base sm:text-lg leading-relaxed">
+            {t.aboutQuestionLead}
+          </p>
+
+          <br />
+
+          <blockquote className="mb-3 sm:mb-4 border-l-2 border-gray-400 dark:border-gray-500 pl-4 text-sm sm:text-base font-semibold leading-relaxed">
+            {t.aboutQuote}
+          </blockquote>
         </div>
 
-        <TimelineSection title={t.educationTitle} items={educationItems} />
-        <TimelineSection title={t.experienceTitle} items={experienceItems} />
-        <TimelineSection title={t.selectedHonors} items={honorItems} />
-        <ProjectsSection />
+        <div className="flex flex-col gap-6 sm:gap-8 lg:w-2/5">
+          <TimelineSection title={t.educationTitle} items={educationItems} />
+          <TimelineSection title={t.experienceTitle} items={experienceItems} />
+          <TimelineSection title={t.selectedHonors} items={honorItems} />
+        </div>
       </div>
-      <Footer />
+
+      <ProjectsSection />
+    </div>
+  );
+}
+
+function Home() {
+  const loopRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = loopRef.current;
+    if (!el) return;
+
+    const segmentHeight = () => el.scrollHeight / LOOP_COPIES;
+
+    // Start the user in the middle copy so there's room to scroll both ways.
+    window.scrollTo(0, window.scrollY + segmentHeight());
+
+    const handleScroll = () => {
+      const height = segmentHeight();
+      if (height === 0) return;
+
+      if (window.scrollY < height * 0.5) {
+        window.scrollTo(0, window.scrollY + height);
+      } else if (window.scrollY > height * (LOOP_COPIES - 1.5)) {
+        window.scrollTo(0, window.scrollY - height);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <>
+      <Navbar />
+      <div ref={loopRef}>
+        {Array.from({ length: LOOP_COPIES }).map((_, i) => (
+          <div key={i}>
+            <HomeContent />
+            {/* <div className="mb-16 sm:mb-24">
+              <Footer />
+            </div> */}
+          </div>
+        ))}
+      </div>
     </>
   )
 }

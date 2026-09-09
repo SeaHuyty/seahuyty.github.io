@@ -44,7 +44,7 @@ function ProjectsSection() {
         <h3 className="text-lg sm:text-xl font-bold mb-4">
           {t.projectsTitle}
         </h3>
-        <p className="text-gray-500 max-w-2xl">
+        <p className="text-base sm:text-md leading-relaxed">
           {t.projectsSubtitle}
         </p>
       </div>

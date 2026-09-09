@@ -9,7 +9,7 @@ function Navbar() {
     const t = translations[language];
 
     return (
-        <nav className="top-0 left-0 w-full flex justify-between items-center text-sm px-4 py-6 sm:px-6 md:px-10 md:py-10 z-50">
+        <nav className="fixed top-0 left-0 w-full flex justify-between items-center text-sm px-4 py-6 sm:px-6 md:px-10 md:py-10 z-0">
             <div>
                 <Link to="/" className="text-base sm:text-lg hover:text-gray-600 dark:hover:text-gray-400 transition-colors">seahuyty</Link>
             </div>
@@ -50,7 +50,6 @@ function Navbar() {
                     </svg>
                 </button>
 
-                                {/* Theme Toggle Button */}
                 <button
                     onClick={toggleTheme}
                     className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
