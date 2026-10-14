@@ -13,8 +13,8 @@ function TimelineSection({ title, items }: { title: string; items: TimelineItem[
       <h3 className="text-lg sm:text-xl font-bold mb-4">{title}</h3>
       <ul className="space-y-3 sm:space-y-2">
         {items.map((item) => (
-          <li key={item.id} className="flex flex-col gap-1">
-            <span className="text-gray-600 dark:text-gray-400 italic text-sm sm:text-base">
+          <li key={item.id} className="flex flex-row gap-2">
+            <span className="shrink-0 w-48 sm:w-64 text-gray-600 dark:text-gray-400 italic text-sm sm:text-base">
               {item.label}
             </span>
             <span className="text-sm sm:text-base">{item.content}</span>

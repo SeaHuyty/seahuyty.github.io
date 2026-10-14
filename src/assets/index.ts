@@ -5,3 +5,4 @@ export { default as projects } from './projects';
 export * from './education';
 export * from './experience';
 export * from './honors';
+export * from './blogs';

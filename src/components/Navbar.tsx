@@ -5,7 +5,7 @@ import { translations } from '../locales/translations';
 
 function Navbar() {
     const { theme, toggleTheme } = useTheme();
-    const { language, toggleLanguage } = useLanguage();
+    const { language } = useLanguage();
     const t = translations[language];
 
     return (
@@ -14,11 +14,18 @@ function Navbar() {
                 <Link to="/" className="text-base sm:text-lg hover:text-gray-600 dark:hover:text-gray-400 transition-colors">seahuyty</Link>
             </div>
             <div className="flex gap-3 sm:gap-4 md:gap-6 items-center">
-                <Link to="/archive" className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" aria-label={t.archive} title={t.archive}>
+                <Link to="/blog" className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" aria-label={t.blog} title={t.blog}>
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4 19.5A2.5 2.5 0 016.5 17H20M4 19.5A2.5 2.5 0 016.5 22H20V2H6.5A2.5 2.5 0 004 4.5v15z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8 7h8M8 11h8" />
+                    </svg>
+                </Link>
+
+                {/* <Link to="/archive" className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" aria-label={t.archive} title={t.archive}>
                     <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3 7h18M5 7v12a2 2 0 002 2h10a2 2 0 002-2V7M9 11h6M4 7l1.5-3.5A1 1 0 016.42 3h11.16a1 1 0 01.92.5L20 7" />
                     </svg>
-                </Link>
+                </Link> */}
 
                 <a href="https://github.com/SeaHuyty" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" aria-label="GitHub" title="GitHub">
                     <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -36,19 +43,6 @@ function Navbar() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                     </svg>
                 </a>
-
-                {/* Language Toggle Button */}
-                <button
-                    onClick={toggleLanguage}
-                    className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
-                    aria-label="Toggle language"
-                    title={language === 'en' ? t.switchToKhmer : t.switchToEnglish}
-                >
-                    <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                      <circle cx="12" cy="12" r="9" strokeLinecap="round" strokeLinejoin="round" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 12h18M12 3c2.5 2.5 3.5 5.5 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-5.5-3.5-9s1-6.5 3.5-9z" />
-                    </svg>
-                </button>
 
                 <button
                     onClick={toggleTheme}

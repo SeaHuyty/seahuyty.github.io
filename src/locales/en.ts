@@ -2,9 +2,14 @@ export const en = {
   // Navbar
   projects: "Projects",
   archive: "Archive",
+  blog: "Blog",
 
   // Home Page
   name: "Sea Huyty",
+  homeIntro:
+    "I'm a software engineer passionate about turning ideas into clean, functional digital experiences. I specialize in building custom web and mobile applications, helping clients bring their visions to life from front to back.",
+  homeCta:
+    "Currently, I'm delving deeper into the world of data science to expand my skill set and unlock new ways to solve complex problems. Whether you need a brand-new app built from scratch or improvements to an existing project, reach out to me via my email.",
   aboutIntro:
     "Hey! I'm Sea Huyty, a software developer and Computer Science student specializing in Software Engineering.",
   aboutPassion:

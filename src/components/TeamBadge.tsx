@@ -12,7 +12,7 @@ function TeamBadge({
   name: string;
 }) {
   const badgeClassName =
-    "flex items-center gap-1.5 bg-gray-400/20 dark:bg-gray-900/80 rounded px-2 py-1";
+    "flex items-center gap-1.5 bg-gray-400/10 dark:bg-gray-900/80 rounded px-2 py-1";
   const badgeContent = (
     <>
       <img src={logoSrc} alt={logoAlt} className="h-5 sm:h-6 w-auto" />

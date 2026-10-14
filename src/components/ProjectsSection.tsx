@@ -78,24 +78,6 @@ function ProjectsSection() {
           <div className="flex-1 lg:flex-[3] flex flex-col gap-4">
             <ImageCarousel images={project.image} />
             <div className="flex flex-col lg:flex-row gap-10">
-              <div className="flex flex-col flex-1 text-sm gap-3">
-                <div>
-                  <p><span className="text-gray-500">TYPE</span> {project.type}</p>
-                  <p><span className="text-gray-500">TECH STACK</span> {project.languages.join(", ")}</p>
-                </div>
-                <div className="text-left flex flex-col items-start">
-                  {project.github && (
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="underline">
-                      Github Repository
-                    </a>
-                  )}
-                  { project.live && (
-                    <a href={project.live} target="_blank" rel="noopener noreferrer" className="underline">
-                      Live
-                    </a>
-                  )}
-                </div>
-              </div>
               <div className="flex-[2]">
                 <p>{project.description}</p>
               </div>
